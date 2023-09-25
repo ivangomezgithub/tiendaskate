@@ -1,3 +1,4 @@
+
 let edad = prompt ("cual es tu edad");
 let nombreUsu = prompt  ("cual es tu nombre");
 
@@ -58,9 +59,9 @@ confirm ("eres el mejor");
 
 
 
+const arrayProductos = [];
 
-
-class producto {
+class productos {
     constructor (id, nombre, descripcion, precio, img, tipo) {
         this.id= id,
         this.nombre= nombre,
@@ -70,8 +71,6 @@ class producto {
         this.tipo = tipo;
     }
 }
-
-const arrayProductos = [];
 
 function productosIniciales (arrayProductos) {
 
@@ -88,33 +87,36 @@ function productosIniciales (arrayProductos) {
     let tipo = ["finger", "dados", "impresion", "otros"];
       
     
-    const finger = new producto ("001", "FINGER BOARD", "finger para una persona de plastico de maiz", precios.finguer, "finger.jpg", tipo[0], )
+    const finger = new productos ("001", "FINGER BOARD", "finger para una persona de plastico de maiz", precios.finger, "finger.jpg", tipo[0], )
     arrayProductos.push(finger);
-    const dados = new producto ("002", "DADOS SKATE", "ideal para jugar skate entre amigos", precios.dados, "dados.jpg", tipo[1], )
+    const dados = new productos ("002", "DADOS SKATE", "ideal para jugar skate entre amigos", precios.dados, "dados.jpg", tipo[1], )
     arrayProductos.push(dados);
-    const impresion = new producto ("003", "IMPRESION 3D", "todo tipo de productos en impresion 3d", precios.impresion, "impresion.jpg", tipo[2] )
+    const impresion = new productos ("003", "IMPRESION 3D", "todo tipo de productos en impresion 3d", precios.impresion, "impresion.jpg", tipo[2] )
     arrayProductos.push(impresion);
 
-    }
+    };
+
+    productosIniciales (arrayProductos);
 
 
-
-
-
-
-let tipo = ["finger", "dados", "impresion", "otros"];
+    const mostrarPorCategoria = (tipo) =>{
+        const filtro = arrayProductos.filter((el) => el.tipo === tipo);
+        let mensajeAmostrar = "";
+        filtro.forEach ((el) =>{
+            mensajeAmostrar += `\nEl producto elegido es: ${el.id} \n y su precio es: ${el.precio} \nsu categoria es: ${el.tipo}`;
+        })
+        alert(mensajeAmostrar);
+};
 
 
 const fin = 4;
 
 //funcion mostrar hab
 const verProductos = () => {
-    let opcion;
-    opcion = parseInt(prompt("digita la categoria que deseas ver \n 1 finger \n 2 dados \n 3 impresion \n  de lo contrario digita fin"));
     
-
-
-
+    let opcion = parseInt(prompt("digita la categoria que deseas ver \n 1 finger \n 2 dados \n 3 impresion \n  de lo contrario digita fin"));
+    
+    
 
 
 while (opcion != fin) {
@@ -134,17 +136,7 @@ while (opcion != fin) {
     }
     opcion = parseInt(prompt("digita la categoria que deseas ver \n finger \n dados \n impresion \n  de lo contrario digita fin"));
 }
+
 }
-
-
 
 verProductos();
-
-const mostrarPorCategoria = (tipo) =>{
-    const filtro = arrayProductos.filter((el) => el.tipo === tipo);
-    let mensajeAmostrar = "";
-    filtro.forEach ((el) =>{
-        mensajeAmostrar += `\nEl producto elegido es: ${el.id} \n y su precio es: ${el.precio} \nsu categoria es: ${el.tipo}`;
-    })
-    alert(mensajeAmostrar);
-}
