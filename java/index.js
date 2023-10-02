@@ -98,6 +98,7 @@ productosIniciales (arrayProductos);
 
 console.log(arrayProductos)
 
+// function mostrar por categoria - mostrarPorCategoria.El  - El tipo de elemento a mostrar
 
 const mostrarPorCategoria = (tipo) =>{
     const filtro = arrayProductos.filter((el) => el.tipo === tipo);
@@ -142,21 +143,34 @@ verPorCategoria();
 
 
 let app = document.getElementById("app");
-let card = document.createElement("div");
-card.className=("card")>
+
 
 
 function renderizarProductos () {
 
     arrayProductos.forEach ((el) => {
 
-        card.innerHTML = `<div class="container">
+        let card = document.createElement("div");
+
+        card.innerHTML = `
+        <div class="container" div id="card">
         <img src="../images/productos/${el.img}" alt="${el.descripcion}" style="width:50%">
         <h2>${el.id}</h2>
         <h3>${el.nombre}</h3>
         <p><b>${el.precio}</b></p>
-        <button type="button" class="btn btn-info">Mas Info duvan</button>
-        </div>`
+        </div>
+        `;
+
+        const buttonAgregar =   document.createElement("button");
+        buttonAgregar.innerText = "Agregar a Carrito";
+        buttonAgregar.classList.add  ("btn","btn-primary");
+
+        buttonAgregar.addEventListener("click",()=>{
+            arrayCarrito.push(el);
+            localStorage.setItem("Carrito",JSON.stringify(arrayCarrito));
+        })
+
+        card.append(buttonAgregar);
         app.append(card);
     })
 
@@ -168,7 +182,7 @@ function renderizarProductos () {
         
 }
 
-renderizarProductos (arrayProductos);
+renderizarProductos ();
 
 
 

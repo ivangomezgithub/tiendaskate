@@ -40,6 +40,15 @@ nav ul li a {
     height: 450px;
 }
 
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
 
 #tarjetaProducto {
     background-color: rgb(182, 182, 182);
