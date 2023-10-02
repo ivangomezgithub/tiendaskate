@@ -51,3 +51,18 @@ nav ul li a {
     min-height: 300px;
 }
 
+.container {
+    padding: 10px;
+
+}
+
+#card {
+    background-color: rgb(182, 182, 182);
+    border-radius: 50px;
+    text-align: center;
+    border-color: rgb(68, 68, 68);
+    border-style:dotted;
+    max-width: 300px;
+    min-height: 300px;
+}
+
