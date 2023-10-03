@@ -40,17 +40,28 @@ nav ul li a {
     height: 450px;
 }
 
+.quienesSomos {
+    text-align: center;
+    color: rgb(0, 77, 34);
+}
+
 #app {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+
+    padding-top: 5Vh;
+    background-color: #072741;
+    padding-bottom: 5vh;
+    gap: 16px;
+
 
 }
 
 
-#tarjetaProducto {
+.tarjetaProducto {
     background-color: rgb(182, 182, 182);
     border-radius: 50px;
     text-align: center;
@@ -58,20 +69,18 @@ nav ul li a {
     border-style:dotted;
     max-width: 300px;
     min-height: 300px;
+    padding: 1rem;
 }
 
-.container {
-    padding: 10px;
-
-}
 
 #card {
-    background-color: rgb(182, 182, 182);
-    border-radius: 50px;
+    
+}
+
+.tituloProductos h3 {
+    color:aliceblue;
+    background-color: #072741;
+    padding: 1rem 0 1rem 0;
     text-align: center;
-    border-color: rgb(68, 68, 68);
-    border-style:dotted;
-    max-width: 300px;
-    min-height: 300px;
 }
 
