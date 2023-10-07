@@ -32,7 +32,16 @@ function ProductosCarrito () {
        
 
         buttonQuitar.addEventListener("click",()=>{
-            localStorage.removeItem("Carrito", el );
+
+            localStorage.removeItem("Carrito");
+
+            Swal.fire({
+                position: 'top-end',
+                icon: 'warning',
+                title: 'Quitaste este producto del Carrito',
+                showConfirmButton: false,
+                timer: 1000
+              })
         })
 
         card.append(buttonQuitar);
