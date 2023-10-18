@@ -1,40 +1,21 @@
-//PREGUNTA EDAD
-let edad = prompt ("cual es tu edad");
+//swal.fire("Para poder ver nuestros productos debes ingresar Tu nombre de usuario y tu contraseña");
 
-//sentencia mayor o menor de edad
-if (edad <= 18) {
-    alert("Eres menor de edad")
-    
-}
-else {
-    alert("Eres un Anciano")
-};
-
-alert("Para poder ver nuestros productos debes ingresar Tu nombre de usuario y tu contraseña")
-
-
-//PREGUNTA USUARIO
-let nombreUsu = prompt  ("Cual es tu Usuario");
-//PREGUNTA CONTRASEÑA
-let contraseñaUsu = prompt  ("Cual es tu contraseña");
 
 const arrayProductos = [];
+const arrayCarrito= [];
 
 import {productos,productosIniciales} from "./clases.js";
 
 productosIniciales (arrayProductos);
 
-const arrayCarrito= [];
 
-console.log(arrayProductos)
-
-
-
+console.log(arrayProductos);
 
 
 //buscar producto
 let productoEncontrado = [];
 
+//funcion buscar productos input
 export function buscarProductos (){
 
     const input = document.getElementById("inPut");
@@ -88,12 +69,19 @@ input.addEventListener("keypress",(event)=>{
 buscarProductos();
 
 
+
+//funciion agregar a local storage
+export const guardarLocal = () => {
+    
+    localStorage.setItem("Carrito",JSON.stringify(arrayCarrito));
+}
+
+
 export function renderizarProductos () {
 
     let app = document.getElementById("app");
-    const tituloProdu = document.getElementById("tituloProductos")
-    let tituloProductos = document.createElement("h3");
-    tituloProductos.innerText = "PRODUCTOS SKATE PARCHAO";
+    const tituloProdu = document.getElementById("tituloProductos");
+    tituloProdu.innerHTML=`<h3>PRODUCTOS SKATE PARCHAO</h3>`;
 
 
     arrayProductos.forEach ((el) => {
@@ -105,19 +93,24 @@ export function renderizarProductos () {
         <img src="../images/productos/${el.img}" alt="${el.descripcion}" style="width:50%">
         <h4>${el.id}</h4>
         <h3>${el.nombre}</h3>
-        <p><b>PRECIO: ${el.precio}</b></p>
+        <p class="precio"><strong>$ ${el.precio}</strong></p>
         </div>
+        
         `;
 
         const buttonAgregar =   document.createElement("button");
-        buttonAgregar.innerText = "Agregar a Carrito";
-        buttonAgregar.classList.add  ("btn","btn-primary");
+        buttonAgregar.innerHTML = `<p>AGREGAR A CARRITO</p>`;
+        buttonAgregar.classList.add  ("botonAgregar");
 
        
 
         buttonAgregar.addEventListener("click",()=>{
+
             arrayCarrito.push(el);
-            localStorage.setItem("Carrito",JSON.stringify(arrayCarrito));
+            guardarLocal();
+
+
+
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -129,19 +122,9 @@ export function renderizarProductos () {
         card.append(buttonAgregar);
         app.append(card);
     })
+};
 
-    
-    tituloProdu.append(tituloProductos)
-
-        //let cards = document.createElement("div");
-        //.classList.add("card","container");        
-}
-
-
-//condicion si nombre de usuario es Ivan & contraseña Admin =
-if (nombreUsu === "Ivan" & contraseñaUsu === "Admin") {
-
-    alert ("Bienvenido ivan");
+renderizarProductos();
 
 
 // function mostrar por categoria - mostrarPorCategoria.El  - El tipo de elemento a mostrar
@@ -151,16 +134,20 @@ const mostrarPorCategoria = (tipo) =>{
     filtro.forEach ((el) =>{
         mensajeAmostrar += `\nEl producto elegido es: ${el.id} \n y su precio es: ${el.precio} \nsu categoria es: ${el.tipo}`;
     })
-    alert(mensajeAmostrar);
+
+    Swal.fire(mensajeAmostrar);
+
 };
+
 const fin = 4;
 
 //funcion mostrar hab por categoria
-const verPorCategoria = () => {
+const preguntarCategoria = () => {
     
     let opcion = parseInt(prompt("Digita el #Numero la categoria que deseas ver \n 1 finger \n 2 dados \n 3 impresion \n  de lo contrario digita el #4"));
 
-
+    
+//control de flujo
 while (opcion != fin) {
     switch (opcion) {
         case 1:
@@ -173,23 +160,39 @@ while (opcion != fin) {
             mostrarPorCategoria("impresion")
             break;
         default:
-            alert("ingreso una opcion invalida")
+            Swal.fire("Ingreso una opcion invalida")
             break;
     }
     opcion = parseInt(prompt("Digita el #Numero de la categoria que deseas ver \n 1 finger \n 2 dados \n 3 impresion \n  de lo contrario digita el #4"));
 }
 
+};
+
+
+//PREGUNTA USUARIO
+
+//let nombreUsu = prompt  ("Cual es tu Usuario");
+
+//if (nombreUsu === "") {
+//    Swal.fire ("Ingresa un nombre de usuario")
+//};
+
+//PREGUNTA CONTRASEÑA
+
+//let contraseñaUsu = prompt  ("Cual es tu contraseña");
+
+//if (contraseñaUsu === "") {
+//    Swal.fire ("Ingresa una Contraseña")
+//};
+
+
+//registro
+export function registro (){
+//si condicion
+if (nombreUsu === "Ivan" & contraseñaUsu === "Admin") {
+    Swal.fire("Bienvenido ivan");
+    preguntarCategoria();
 }
-
-verPorCategoria();
-
-
-renderizarProductos ();
-
-
-
-}
-
 else {
     Swal.fire({
         icon: 'error',
@@ -197,7 +200,9 @@ else {
         text: 'Tu Nombre de Usuario y contraseña no son correctos!',
         //footer: '<a href="">Voy a Revisarlo?</a>'
       });
-}
+};
+};
+//registro ();
 
 
 //BANNER MOVIMIENTO MOUSEY
@@ -212,16 +217,15 @@ function bannerMouse() {
             let yPos = e.clientY;
             let posDiv = parseInt((yPos) / 8);
     
-            const pantallaDiv = parseInt( yPos / (screen.width / 100));
     
         banner.innerHTML =`
         <img src="/images/videoskate/theartteam Capa ${posDiv}.jpg" height= "300px">
         `
         
     });
-    }
-    bannerMouse ();
-    //
+};
+bannerMouse ();
+//
 
 //BUCLE entrega anterior
 //for (let index = 0; index < edad; index++) {

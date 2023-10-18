@@ -14,57 +14,82 @@
 
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo"></div>
+    <div class="contIndex">
+        <header>
+            <nav>
+                <div class="logo"></div>
 
-            <ul class="menu">
-                <li><a href="index.html">Nosotros</a></li>
-                <li><a>Proyectos</a></li>
-                <li><a>Contacto</a></li>
-                <li><a href="/pages/tienda.html">Tienda</a></li>  
-                <li id="btn-Carrito"><a href="/pages/carrito.html"><img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" style="height: 24px;"></a></li>
-                
-                <li>
-                    <input id="inPut" type="text" class="form-control" placeholder="Busqueda" aria-label="Username" aria-describedby="basic-addon1"></input>
-                    <button id="btnSearch" type="button" class="btn btn-primary">BUSCAR</button>
-                </li> 
+                <ul class="menu">
+                    <li><a href="index.html">Nosotros</a></li>
+                    <li><a>Proyectos</a></li>
+                    <li><a>Contacto</a></li>
+                    <li><a href="/pages/tienda.html">Tienda</a></li> 
 
-            </ul>
+                <div class="compra">
+                    <li id="btn-Carrito"><a href="/pages/carrito.html"><img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png"></a></li>
 
-         </nav>
-    </header>
+                    <li class="cantidad">0</li>
+                </div>
 
-    <main>
-        
-        <div id="tituloBusqueda"></div>
-        <DIV id="appBusqueda">
-        </DIV>
+                    <li>
+                        <input id="inPut" type="text" class="form-control" placeholder="Busqueda" aria-label="Username" aria-describedby="basic-addon1"></input>
+                        <button id="btnSearch" type="button" class="btn btn-primary">BUSCAR</button>
+                    </li> 
 
-        <div class="bannerindex">
+                </ul>
+
+             </nav>
+        </header>
+
+        <main>
+
+
+
+            <!-- dibujar busqueda dom-->
+            <div id="tituloBusqueda"></div>
+            <DIV id="appBusqueda">
+            </DIV>
+
+
+            <div class="list">
+            </div>
+
+            <div class="listaProductos">
+                <h1>Carrito</h1>
+
+                <div class="salir">
+                    <div class="total">0</div>
+                    <div class="cerrarCarrito">Cerrar carrito</div>
+                </div>
+
+            </div>
+
+
+            <div class="bannerindex">
+            </div>
+
+            <article class="quienesSomos">
+                <h1>ESTA ES UNA PAGINA DE PRODUCTOS URBANOS Y DE SKATE</h1>
+                <p>Tenemos variedad de productos relacionados con el arte urbano ""graffiti" y deportes extremos, realizamos artículos y prototipos en 3d</p>
+            </article>
+
+
+
+            <span>PARA ACCEDER A NUESTRA TIENDA DEBES INGRESAR TU USUARIO Y CONTRASEÑA</span>
+        <span id="tituloProductos" class="tituloProductos"></span> 
+
+
+     <!--app java-->
+
+
+        <div id="app">        
         </div>
 
-        <article class="quienesSomos">
-            <h1>ESTA ES UNA PAGINA DE PRODUCTOS URBANOS Y DE SKATE</h1>
-            <p>Tenemos variedad de productos relacionados con el arte urbano ""graffiti" y deportes extremos, realizamos artículos y prototipos en 3d</p>
-        </article>
+        <div id="bannerAnim">
 
-        </main>
-
-       
-    <span id="tituloProductos" class="tituloProductos"></span> 
-
-
- <!--app java-->
-
-<span>PARA ACCEDER A NUESTRA TIENDA DEBES INGRESAR TU USUARIO Y CONTRASEÑA</span>
-    <div id="app">        
+        
+    <button style="padding: 10px; background-color: rgb(0, 255, 106); border-radius: 10px; color:aliceblue ;"><a href="">WHATSAPP</a></a></button>
     </div>
-
-    <div id="bannerAnim"></div>
-    
-<button style="padding: 10px; background-color: rgb(0, 255, 106); border-radius: 10px; color:aliceblue ;"><a href="">WHATSAPP</a></a></button>
-
 
 <script src="java/index.js" type="module"></script>
 <!--sweet alert-->

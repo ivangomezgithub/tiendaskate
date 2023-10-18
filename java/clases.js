@@ -13,18 +13,21 @@ export class productos {
 
 export function productosIniciales (arrayProductos) {
 
-//PRECIOS HABS OBJ
+// CONSTATE LOCAL DENTRO DE LA FUNCION PRECIOS HABS OBJ
 const precios = {
     finger: 480000,
     dados: 650000,
     impresion: 980000,
 
-};  
-    
+};
+
+
+
 //arrray tipos de Productos
 let tipo = ["finger", "dados", "impresion", "otros"];
   
 
+//AGREGAR NUEVOS PRODUCTOS
 const finger = new productos ("001", "FINGER BOARD", "Finger para una persona de plastico de maiz", precios.finger, "finger.jpg", tipo[0], )
 arrayProductos.push(finger);
 const dados = new productos ("002", "DADOS SKATE", "Ideal para jugar skate entre amigos", precios.dados, "dados.jpg", tipo[1], )
@@ -37,3 +40,5 @@ const litofania = new productos ("005", "LITOFANIA ", "Impresion en 3d de fotos 
 arrayProductos.push(litofania);
 
 };
+
+
